@@ -27,8 +27,8 @@ The project has next structure
 ├── plots                           # folder for saving plots
 │   └── gc-content.png
 ├── readme.md
-├── requirements.txt                 # names and versions of libraries
-├── tests                            # folder for storing tests
+├── requirements.txt                # names and versions of libraries
+├── tests                           # folder for storing tests
 │   └── test_first.py
 └── third task.py                   # script for GC-index calculation and plot creation
 ```
@@ -39,4 +39,3 @@ The project has next structure
 Pull requests are welcome. 
 
 Please make sure to update tests as appropriate.
-
