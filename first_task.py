@@ -1,8 +1,20 @@
 def convert_dna_to_rna(dna_sequence: str):
+    '''
+    This function convert DNA sequence to RNA.
+    String method replace is used for convert Timine to Uracil in the sequence
+    '''
     rna_sequence = dna_sequence.replace('T', 'U')
     return rna_sequence
 
 def convert_rna_to_protein(rna_sequence: str):
+    '''
+    This function convert RNA sequence to protein.
+    As first step, dictionary with aminoacid and codons is created.
+    Aminoacids are used as keys, tuples of codons - as values.
+    Then function creates list of strings (codon_chain) with codons.
+    Finally, function searches for a codon from the chain among the dictionary 
+    values and returns the corresponding key.
+    '''
     aminoacids = {
         'A': ('GCU', 'GCC', 'GCA', 'GCG'),
         'R': ('CGU', 'CGC', 'CGA', 'CGG', 'AGA', 'AGG'),
