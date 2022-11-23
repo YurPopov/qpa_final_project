@@ -14,7 +14,6 @@ docker run my_pretty_dnas
 
 The project has next structure
 
-project folder
 ```
 ├── data
 │   ├── database_qpa_project.db     # database (DB) with dna_base, rna_base, codon and aminoacids
@@ -31,7 +30,8 @@ project folder
 ├── requirements.txt                 # names and versions of libraries
 ├── tests                            # folder for storing tests
 │   └── test_first.py
-└── third task.py                   # script for GC-index calculation and plot creation```
+└── third task.py                   # script for GC-index calculation and plot creation
+```
 
 
 ## Contributing
