@@ -2,20 +2,13 @@
 With this file we create database which contains tables with DNA abd RNA bases, 
 aminoacins and codons, define relations.
 '''
-
+import os
+print(os.listdir("./"))
 from sqlalchemy import create_engine
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
 from sqlalchemy.ext.declarative import declarative_base
-
-# create adress for database
-SQLALCHEMY_DATABASE_URL = 'sqlite:///./data/database_qpa_project.db'
-
 # create engine
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
-)
-
 Base = declarative_base()
 
 # create base for DNA
@@ -65,5 +58,14 @@ class Codons(Base):
      def __repr__(self):
          return f'{self.codon_id} {self.name}'
 
-#create file with DB in project folder
-Base.metadata.create_all(engine)
+def foo_foo(base):
+
+    engine = create_engine('postgresql://tior:tior123@db:5432/database_qpa_project')
+
+    base.metadata.create_all(engine)
+
+
+
+
+
+

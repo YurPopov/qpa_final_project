@@ -1,0 +1,35 @@
+version: '3'
+services:
+  app:
+    container_name: bio-app
+    build: 
+      context: .
+      dockerfile: dockerfile
+    command: python fill_db.py 
+    ports: 
+     - 8000:8001
+    depends_on:
+     - db
+    networks:
+      - backend
+    
+
+    
+  db:
+    container_name: postgres
+    image: postgres:14
+    ports:
+     - 5432:5432
+    # volumes:
+    #   - postgres_data:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=tior
+      - POSTGRES_PASSWORD=tior123
+      - POSTGRES_DB=database_qpa_project
+    networks:
+      - backend
+# volumes:
+#   postgres_data:
+networks:
+  backend:
+    driver: bridge

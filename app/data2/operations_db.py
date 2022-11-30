@@ -1,16 +1,13 @@
 # this script gets data for functions working with dna-to-rna transformation and translation
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
-from data.model import RnaBases, DnaBases, Codons, AminoAcids
-from sqlalchemy import select
+from data2.model import RnaBases, DnaBases, Codons, AminoAcids
 from contextlib import contextmanager
 
 # create engine and session foe this script
-SQLALCHEMY_DATABASE_URL = 'sqlite:///./data/database_qpa_project.db'
+SQLALCHEMY_DATABASE_URL = 'postgresql://tior:tior123@localhost:5432/database_qpa_project'
 
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
-)
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autoflush=False, bind=engine)
 
 # use context manager for automatically closing database after each request.

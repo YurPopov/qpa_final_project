@@ -1,6 +1,20 @@
 import matplotlib.pyplot as plt
 from Bio.SeqIO import parse
+import sys
+from pathlib import Path
+import os
 
+args = sys.argv
+
+step = 100
+
+try:
+    step = args[1]
+except:
+    IndexError
+
+way_to_seq = os.getcwd() + str(Path('/external_fastq')) + '/genomic.fna'
+way_to_plot = os.getcwd() + str(Path('/plots')) + '/gc-content.png'
 
 def gc_ratio(sequence: str, step=100):
     '''
@@ -12,11 +26,12 @@ def gc_ratio(sequence: str, step=100):
     subsequences = [] 
     subseq = ''
     counter = 0
+    step = int(step)
 
     for base in sequence:
         subseq += base
         counter += 1
-        if counter == 100:
+        if counter == step:
             subsequences.append(subseq)
             counter = 0
             subseq = ''
@@ -35,24 +50,13 @@ def gc_ratio(sequence: str, step=100):
     plt.title('GC-content distribution')
     plt.xlabel('Genome position, kilobases')
     plt.ylabel('G-C ratio, %')
-    plt.savefig('./plots/gc-content.png')
-
+    plt.savefig(way_to_plot)
     print('plot saved to plots folder!') 
 
 # this expression collect primary sequence from fastq file (it should be in external_fastq folder)
-file = parse(open('./external_fastq/genomic.fna'), 'fasta')
+file = parse(open(way_to_seq), 'fasta')
 for s in file:
     virus_seq = s.seq
 
 # this expression uses gc-function for sequence which was recieved from fastq file
-virus_gc_ratio = gc_ratio(virus_seq)
-
-
-
-
-
-
-
-
-
-
+virus_gc_ratio = gc_ratio(virus_seq, step)

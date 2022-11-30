@@ -6,32 +6,25 @@ This project consists of some scripts for manipulating with DNA and RNA sequence
 
 Use [docker](https://docker.com) to run container with project.
 
+To deploy - from the root folder:
+
 ```bash
-docker run my_pretty_dnas
+docker-compose up -d --build
 ```
 
-## Composing
+To switch the containers off:
 
-The project has next structure
+```bash
+docker-compose down -v
+```
 
-```
-├── data
-│   ├── database_qpa_project.db     # database (DB) with dna_base, rna_base, codon and aminoacids
-│   ├── fill_db.py                  # script for DB filling
-│   ├── model.py                    # script for creating DB file, declaring fields and relations
-│   └── operations_db.py            # script for requesting to DB
-├── external_fastq                  # folter for external fastq files
-│   └── genomic.fna                 # fastq file with DNA sequence
-├── first_task.py                   # script for transformation DNA to RNA and RNA to protein
-├── first_task_with_db.py           # script for transformation DNA to RNA and RNA to protein using DB
-├── plots                           # folder for saving plots
-│   └── gc-content.png
-├── readme.md
-├── requirements.txt                # names and versions of libraries
-├── tests                           # folder for storing tests
-│   └── test_first.py
-└── third task.py                   # script for GC-index calculation and plot creation
-```
+## How to use functions from bio-application?
+
+1. After introduction "Enter DNA sequence to convert it to RNA" you can enter a sequence of DNA for transforming it into RNA.
+
+2. Next step is "Enter RNA sequence to convert it to protein" - enter RNA sequence to transform it into protein.
+
+3. The last one function is GC plot. After message "Let's create GC-content plot of SARS-CoV2 genome. It will be saved to Plots folder", you can enter integer value for 'resolution' of plot (default is 100 bases).
 
 
 ## Contributing
