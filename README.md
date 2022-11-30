@@ -9,6 +9,7 @@ Use [docker](https://docker.com) to run container with project.
 To deploy - from the root folder:
 
 ```bash
+cd app
 docker-compose up -d --build
 ```
 
