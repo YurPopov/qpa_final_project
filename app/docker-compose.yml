@@ -5,7 +5,7 @@ services:
     build: 
       context: .
       dockerfile: dockerfile
-    command: python fill_db.py 
+    command: python first_task_with_db.py
     ports: 
      - 8000:8001
     depends_on:

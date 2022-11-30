@@ -11,7 +11,7 @@ if len(args) == 3:
     rna = args[2]
 elif len(args) == 2:
     print('Is it DNA sequence or RNA')
-    a = input('dna or rna')
+    a = input('dna or rna ')
     if a.lower().strip() == 'dna':
         dna = args[1]
     elif a.lower().strip() == 'rna':

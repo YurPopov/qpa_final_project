@@ -59,4 +59,4 @@ for s in file:
     virus_seq = s.seq
 
 # this expression uses gc-function for sequence which was recieved from fastq file
-virus_gc_ratio = gc_ratio(virus_seq, step)
+gc_ratio(virus_seq, step)

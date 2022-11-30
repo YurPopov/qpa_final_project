@@ -20,12 +20,30 @@ docker-compose down -v
 
 ## How to use functions from bio-application?
 
-1. After introduction "Enter DNA sequence to convert it to RNA" you can enter a sequence of DNA for transforming it into RNA.
+1. Creating and filling database, you can use functions.
 
-2. Next step is "Enter RNA sequence to convert it to protein" - enter RNA sequence to transform it into protein.
+2. Go to terminal and enter 
+```
+cd app
+```
+to change directory
 
-3. The last one function is GC plot. After message "Let's create GC-content plot of SARS-CoV2 genome. It will be saved to Plots folder", you can enter integer value for 'resolution' of plot (default is 100 bases).
+2. Enter 
+```
+python first_task_with_db.py {seq}
+```
+Instead {seq} you can write DNA or RNA sequence (use capital letters) or both (separated with space). 
+If you enter only one sequence next step is enter type of sequence - dna or rna.
 
+3. You can create GC-content plot.
+Script uses fasta file from 'external_fastq' folder named 'genomic.fna'. 
+Enter in terminal 
+
+```
+python third_task.py {step}
+```
+Instead {step} you can enter integer value for "resolution" of plot (default - 100 bases).
+Plot is saved to "plots" folder.
 
 ## Contributing
 
