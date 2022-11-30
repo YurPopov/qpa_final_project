@@ -5,7 +5,7 @@ from data2.model import RnaBases, DnaBases, Codons, AminoAcids
 from contextlib import contextmanager
 
 # create engine and session foe this script
-SQLALCHEMY_DATABASE_URL = 'postgresql://tior:tior123@localhost:5432/database_qpa_project'
+SQLALCHEMY_DATABASE_URL = 'postgresql://tior:tior123@db:5432/database_qpa_project'
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autoflush=False, bind=engine)

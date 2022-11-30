@@ -22,9 +22,9 @@ docker-compose down -v
 
 1. Creating and filling database, you can use functions.
 
-2. Go to terminal and enter to change directory
+2. Go to terminal and enter to go to bash in containter
 ```
-cd app
+docker exec -it bio-app bash
 ```
 
 2. Using functions for transforming DNA to RNA and RNA to protein. 
