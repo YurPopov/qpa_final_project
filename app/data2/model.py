@@ -2,8 +2,7 @@
 With this file we create database which contains tables with DNA abd RNA bases, 
 aminoacins and codons, define relations.
 '''
-import os
-print(os.listdir("./"))
+
 from sqlalchemy import create_engine
 from sqlalchemy import Column, ForeignKey, Integer, String
 from sqlalchemy.orm import relationship
@@ -61,8 +60,9 @@ class Codons(Base):
 def foo_foo(base):
 
     engine = create_engine('postgresql://tior:tior123@db:5432/database_qpa_project')
-
+    
     base.metadata.create_all(engine)
+    return engine
 
 
 

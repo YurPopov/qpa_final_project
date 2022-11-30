@@ -907,7 +907,10 @@ def fill():
         session.add(codon_56)
         session.add(codon_57)
         session.commit()
+from time import sleep
+
 if __name__ ==  '__main__':
+    sleep(3)
     foo_foo(base=Base)
     fill()
     print("Yay, me done me leage!")
