@@ -22,13 +22,12 @@ docker-compose down -v
 
 1. Creating and filling database, you can use functions.
 
-2. Go to terminal and enter 
+2. Go to terminal and enter to change directory
 ```
 cd app
 ```
-to change directory
 
-2. Enter 
+2. Using functions for transforming DNA to RNA and RNA to protein. 
 ```
 python first_task_with_db.py {seq}
 ```
