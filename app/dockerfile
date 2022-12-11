@@ -11,7 +11,11 @@ RUN pip install --upgrade pip
 COPY ./requirements.txt /usr/src/app/requirements.txt
 RUN pip install -r requirements.txt
 
-COPY ./data2 /usr/src/app/
+
 COPY . /usr/src/app/
+COPY ./scripts /usr/src/app/
+COPY ./data/model.py /usr/src/app/
+COPY ./data/config.py /usr/src/app/
+COPY ./data/operations_db.py /usr/src/app/
 
 ENTRYPOINT ["/usr/src/app/entrypoint.sh"]

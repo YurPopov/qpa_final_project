@@ -21,7 +21,7 @@ docker-compose down -v
 
 ## How to use functions from bio-application?
 
-1. Creating and filling database, you can use functions.
+1. Firstly, App creates and fills database, then you can use functions.
 
 2. Go to terminal and enter to go to bash in containter
 ```
@@ -30,17 +30,24 @@ docker exec -it bio-app bash
 
 2. Using functions for transforming DNA to RNA and RNA to protein. 
 ```
-python first_task_with_db.py {seq}
+python transform_seq.py convert_dna_to_rna {seq}
 ```
-Instead {seq} you can write DNA or RNA sequence (use capital letters) or both (separated with space). 
-If you enter only one sequence next step is enter type of sequence - dna or rna.
+Using ths function you can transform DNA sequence to RNA sequence.
+Instead {seq} you should write DNA (use only capital letters). 
+
+```
+python transform_seq.py convert_rna_to_protein {seq}
+```
+Using ths function you can transform RNA sequence to aminoacids sequence (protein).
+Instead {seq} you should write RNA (use only capital letters). 
+
 
 3. You can create GC-content plot.
 Script uses fasta file from 'external_fastq' folder named 'genomic.fna'. 
 Enter in terminal 
 
 ```
-python third_task.py {step}
+python gc_plot.py {step}
 ```
 Instead {step} you can enter integer value for "resolution" of plot (default - 100 bases).
 Plot is saved to "plots" folder.
@@ -50,3 +57,11 @@ Plot is saved to "plots" folder.
 Pull requests are welcome. 
 
 Please make sure to update tests as appropriate.
+For testing, you can run test_transform_seq.py file from docker, using CLI.
+Warning! Test script dictionaries with nucleic acids bases and aminoacids and
+doesn't use Postgres database and functions, which access to it.
+
+```
+cd tests
+python test_transform_seq.py
+```
